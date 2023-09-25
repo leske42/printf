@@ -1,31 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   print_u.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mhuszar <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/25 15:59:43 by mhuszar           #+#    #+#             */
-/*   Updated: 2023/09/25 15:59:46 by mhuszar          ###   ########.fr       */
+/*   Created: 2023/09/25 19:33:17 by mhuszar           #+#    #+#             */
+/*   Updated: 2023/09/25 19:33:19 by mhuszar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "ft_printf.h"
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+static int	digit_u(int y)
+{
+	int	counter;
 
-# include <unistd.h>
-# include <stdio.h>
-# include <stdlib.h>
-# include <stddef.h>
-# include <stdarg.h>
+	counter = 1;
+	while (y > 9)
+	{
+		y = y / 10;
+		counter++;
+	}
+	return (counter);
+}
 
-void	ft_putchar(char c);
-int	print_i(int i);
-int	print_x(unsigned int x);
-int	print_xup(unsigned int x);
-int	print_c(char c);
-int	print_s(char *str);
-int	print_p(void *ptr);
-int	print_u(unsigned int u);
+static void	put_u(unsigned int u)
+{
+	if (u > 9)
+	{
+		put_u(u / 10);
+		put_u(u % 10);
+	}
+	else
+		ft_putchar(u + '0');
+}
 
-#endif
+int	print_u(unsigned int u)
+{
+	put_u(u);
+	return (digit_u(u));
+}

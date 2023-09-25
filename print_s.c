@@ -16,9 +16,11 @@ int	print_s(char *str)
 	int	counter;
 	
 	counter = 0;
+	if (str == NULL)
+		write(1, "(null)", 6);
 	while (str[counter])
 	{
-		write(1, &str[counter], 1)
+		write(1, &str[counter], 1);
 		counter++;
 	}
 	return (counter);

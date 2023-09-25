@@ -1,31 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   print_p.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mhuszar <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/25 15:59:43 by mhuszar           #+#    #+#             */
-/*   Updated: 2023/09/25 15:59:46 by mhuszar          ###   ########.fr       */
+/*   Created: 2023/09/25 19:44:42 by mhuszar           #+#    #+#             */
+/*   Updated: 2023/09/25 19:44:43 by mhuszar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "ft_printf.h"
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
-
-# include <unistd.h>
-# include <stdio.h>
-# include <stdlib.h>
-# include <stddef.h>
-# include <stdarg.h>
-
-void	ft_putchar(char c);
-int	print_i(int i);
-int	print_x(unsigned int x);
-int	print_xup(unsigned int x);
-int	print_c(char c);
-int	print_s(char *str);
-int	print_p(void *ptr);
-int	print_u(unsigned int u);
-
-#endif
+int	print_p(void *ptr)
+{
+	return (0);
+}
