@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 #include "ft_printf.h"
 
-static void	ft_putchar(char c)
+void	ft_putchar(char c)
 {
 	write(1, &c, 1);
 }
@@ -37,7 +37,7 @@ static int	digit_count(int y)
 		return (counter);
 }
 
-void	ft_putnbr(int nb)
+static void	ft_putnbr(int nb)
 {
 	if (nb == -2147483648)
 	{

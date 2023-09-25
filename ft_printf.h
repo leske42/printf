@@ -19,4 +19,10 @@
 # include <stddef.h>
 # include <stdarg.h>
 
+void	ft_putchar(char c);
+int	print_i(int i);
+int	print_x(unsigned int x);
+int	print_xup(unsigned int x);
+
+
 #endif

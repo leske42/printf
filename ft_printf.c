@@ -36,9 +36,9 @@ int	ft_printf(const char *tipus, ...)
 			else if (tipus[counter] = 'u')
 				//u;
 			else if (tipus[counter] = 'x')
-				//x;
+				print_x(va_arg(arg_list, unsigned int)));
 			else if (tipus[counter] = 'X')
-				//X;
+				print_xup(va_arg(arg_list, unsigned int)));
 			else if (tipus[counter] = '%')
 				return (print_c('%'));
 			else
