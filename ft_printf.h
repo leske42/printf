@@ -20,12 +20,12 @@
 # include <stdarg.h>
 
 void	ft_putchar(char c);
-int	print_i(int i);
-int	print_x(unsigned int x);
-int	print_xup(unsigned int x);
-int	print_c(char c);
-int	print_s(char *str);
-int	print_p(void *ptr);
-int	print_u(unsigned int u);
+int		print_i(int i);
+int		print_x(unsigned int x);
+int		print_xup(unsigned int x);
+int		print_c(char c);
+int		print_s(char *str);
+int		print_p(void *ptr);
+int		print_u(unsigned int u);
 
 #endif

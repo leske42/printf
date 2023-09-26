@@ -40,11 +40,11 @@ static int	printf_sub(va_list arg_list, char typ)
 
 int	ft_printf(const char *tipus, ...)
 {
-	va_list arg_list; //I create a variable for the list of arguments.
-	va_start(arg_list, tipus); //I specify format as the first element of this list
-	int	counter;
-	int	len;
+	int		counter;
+	int		len;
+	va_list	arg_list;
 
+	va_start(arg_list, tipus);
 	counter = 0;
 	len = 0;
 	while (tipus[counter])
@@ -76,13 +76,3 @@ int	main(void)
 	printf("%p\n", ptr);
 	ft_printf("%s alma %i\n", ptr, -4626);
 }*/
-
-
-
-
-
-
-
-
-
-

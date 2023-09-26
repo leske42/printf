@@ -39,7 +39,7 @@ static void	print_p_sub(unsigned long long int p)
 
 int	print_p(void *ptr)
 {
-	unsigned long long int address;
+	unsigned long long int	address;
 
 	address = (unsigned long long int)ptr;
 	write(1, "0x", 2);

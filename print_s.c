@@ -14,7 +14,7 @@
 int	print_s(char *str)
 {
 	int	counter;
-	
+
 	counter = 0;
 	if (str == NULL)
 		write(1, "(null)", 6);

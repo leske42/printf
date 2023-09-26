@@ -60,7 +60,7 @@ static void	ft_putnbr(int nb)
 		ft_putchar(nb + '0');
 }
 
-int print_i(int i)
+int	print_i(int i)
 {
 	ft_putnbr(i);
 	return (digit_count(i));
