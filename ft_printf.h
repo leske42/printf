@@ -19,6 +19,7 @@
 # include <stddef.h>
 # include <stdarg.h>
 
+int		ft_printf(const char *tipus, ...);
 void	ft_putchar(char c);
 int		print_i(int i);
 int		print_x(unsigned int x);

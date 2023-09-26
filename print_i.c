@@ -22,7 +22,9 @@ static int	digit_count(int y)
 	int	nb;
 
 	counter = 1;
-	if (y < 0)
+	if (y == -2147483648)
+		return (11);
+	else if (y < 0)
 		nb = (y * -1);
 	else
 		nb = y;

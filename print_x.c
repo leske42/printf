@@ -42,8 +42,8 @@ int	print_xup(unsigned int x)
 {
 	if (x > 15)
 	{
-		print_x(x / 16);
-		print_x(x % 16);
+		print_xup(x / 16);
+		print_xup(x % 16);
 	}
 	else if (x < 10)
 		ft_putchar(x + '0');
