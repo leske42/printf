@@ -64,8 +64,25 @@ int	ft_printf(const char *tipus, ...)
 
 int	main(void)
 {
+	char *ptr;
+
+	ptr = "salalala";
+
 	ft_printf("alma\n");
-	ft_printf("%s\n", "alma");
 	ft_printf("%c\n", 'a');
 	ft_printf("%i\n", -4626);
+	ft_printf("%s\n", ptr);
+	ft_printf("%p\n", ptr);
+	printf("%p\n", ptr);
+	ft_printf("%s alma %i\n", ptr, -4626);
 }
+
+
+
+
+
+
+
+
+
+
