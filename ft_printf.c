@@ -38,6 +38,16 @@ static int	printf_sub(va_list arg_list, char typ)
 	return (len);
 }
 
+static int flag_check(char c)
+{
+	if (c == 'c' || c == 's' || c == 'p' || c == 'd' || c == 'i')
+		return (1);
+	else if (c == 'u' || c == 'x' || c == 'X' || c == '%')
+		return (1);
+	else
+		return (0);
+}
+
 int	ft_printf(const char *tipus, ...)
 {
 	int		counter;
@@ -52,7 +62,10 @@ int	ft_printf(const char *tipus, ...)
 		if (tipus[counter] == '%')
 		{
 			counter++;
-			len = len + printf_sub(arg_list, tipus[counter]);
+			if (!flag_check(tipus[counter]))
+				return (-1);
+			else
+				len = len + printf_sub(arg_list, tipus[counter]);
 		}
 		else
 			len = len + print_c(tipus[counter]);
@@ -61,7 +74,7 @@ int	ft_printf(const char *tipus, ...)
 	va_end(arg_list);
 	return (len);
 }
-/*
+
 int	main(void)
 {
 	char *ptr;
@@ -72,21 +85,26 @@ int	main(void)
 	ft_printf("%c\n", 'a');
 	ft_printf("%i\n", -4626);
 
-	ft_printf("%s\n", ptr);
-	ft_printf("%p\n", ptr);
-	printf("%p\n", ptr);
+	//ft_printf("%s\n", ptr);
+	//ft_printf("%p\n", ptr);
+	//printf("%p\n", ptr);
 
 	ft_printf("%s alma %i\n", ptr, -4626);
 	
 	//printf("%s\n", NULL);
 	//ft_printf("%s\n", NULL);
 	
-	printf("%p\n", NULL);
-	ft_printf("%p\n", NULL);
+	//printf("%p\n", NULL);
+	//ft_printf("%p\n", NULL);
 
-	printf("%d\n", printf(" %p %p \n", 0, 0));
-	printf("%d\n", ft_printf(" %p %p \n", 0, 0));
+	//printf("%d\n", printf(" %p %p \n", 0, 0));
+	//printf("%d\n", ft_printf(" %p %p \n", 0, 0));
 	
-	printf("%X\n", 845639223);
-	ft_printf("%X\n", 845639223);
-}*/
+	printf("%d\n", printf("kalap alma% "));
+	printf("%d\n", ft_printf("kalap alma% "));
+	//printf("kalap alma%\n");
+	//ft_printf("kalap alma%\n");
+	
+	//printf("%X\n", 845639223);
+	//ft_printf("%X\n", 845639223);
+}
