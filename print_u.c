@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 #include "ft_printf.h"
 
-static int	digit_u(int y)
+static int	digit_u(unsigned int y)
 {
 	int	counter;
 

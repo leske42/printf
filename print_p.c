@@ -44,8 +44,8 @@ int	print_p(void *ptr)
 	address = (unsigned long long int)ptr;
 	if (ptr == NULL)
 	{
-		write(1, "(null)", 6);
-		return (6);
+		write(1, "(nil)", 6);
+		return (5);
 	}
 	write(1, "0x", 2);
 	print_p_sub(address);

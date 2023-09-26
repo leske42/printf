@@ -78,8 +78,14 @@ int	main(void)
 
 	ft_printf("%s alma %i\n", ptr, -4626);
 	
-	printf("%s\n", NULL);
-	ft_printf("%s\n", NULL);
+	//printf("%s\n", NULL);
+	//ft_printf("%s\n", NULL);
+	
+	printf("%p\n", NULL);
+	ft_printf("%p\n", NULL);
+
+	printf("%d\n", printf(" %p %p \n", 0, 0));
+	printf("%d\n", ft_printf(" %p %p \n", 0, 0));
 	
 	printf("%X\n", 845639223);
 	ft_printf("%X\n", 845639223);
