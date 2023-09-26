@@ -61,7 +61,7 @@ int	ft_printf(const char *tipus, ...)
 	va_end(arg_list);
 	return (len);
 }
-
+/*
 int	main(void)
 {
 	char *ptr;
@@ -75,7 +75,7 @@ int	main(void)
 	ft_printf("%p\n", ptr);
 	printf("%p\n", ptr);
 	ft_printf("%s alma %i\n", ptr, -4626);
-}
+}*/
 
 
 
