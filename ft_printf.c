@@ -12,7 +12,7 @@
 #include "ft_printf.h"
 //#include <stdarg.h>
 
-static int	printf_sub(va_list arg_list, char typ)
+static int	printf_sub(va_list arg_list, const char typ)
 {
 	int	len;
 
@@ -38,7 +38,7 @@ static int	printf_sub(va_list arg_list, char typ)
 	return (len);
 }
 
-static int flag_check(char c)
+static int	flag_check(char c)
 {
 	if (c == 'c' || c == 's' || c == 'p' || c == 'd' || c == 'i')
 		return (1);
@@ -74,7 +74,7 @@ int	ft_printf(const char *tipus, ...)
 	va_end(arg_list);
 	return (len);
 }
-
+/*
 int	main(void)
 {
 	char *ptr;
@@ -100,11 +100,11 @@ int	main(void)
 	//printf("%d\n", printf(" %p %p \n", 0, 0));
 	//printf("%d\n", ft_printf(" %p %p \n", 0, 0));
 	
-	printf("%d\n", printf("kalap alma% "));
-	printf("%d\n", ft_printf("kalap alma% "));
+	printf("\n%d\n", printf("kalap alma%", "alma"));
+	printf("\n%d\n", ft_printf("kalap alma%", "alma"));
 	//printf("kalap alma%\n");
 	//ft_printf("kalap alma%\n");
 	
 	//printf("%X\n", 845639223);
 	//ft_printf("%X\n", 845639223);
-}
+}*/
