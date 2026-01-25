@@ -6,13 +6,13 @@
 /*   By: mhuszar <mhuszar@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 19:44:42 by mhuszar           #+#    #+#             */
-/*   Updated: 2026/01/25 17:07:41 by mhuszar          ###   ########.fr       */
+/*   Updated: 2026/01/25 17:30:58 by mhuszar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	p_digit_count(unsigned long long int p)
+static int	p_digit_count(size_t p)
 {
 	int	counter;
 
@@ -25,7 +25,7 @@ static int	p_digit_count(unsigned long long int p)
 	return (counter);
 }
 
-static void	print_p_sub(unsigned long long int p)
+static void	print_p_sub(size_t p)
 {
 	if (p > 15)
 	{
@@ -40,9 +40,9 @@ static void	print_p_sub(unsigned long long int p)
 
 int	print_p(void *ptr)
 {
-	unsigned long long int	address;
+	size_t	address;
 
-	address = (unsigned long long int)ptr;
+	address = (size_t)ptr;
 	if (ptr == NULL)
 	{
 		write(1, "(nil)", 5);

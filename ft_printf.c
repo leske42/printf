@@ -6,7 +6,7 @@
 /*   By: mhuszar <mhuszar@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 15:58:51 by mhuszar           #+#    #+#             */
-/*   Updated: 2026/01/25 17:27:06 by mhuszar          ###   ########.fr       */
+/*   Updated: 2026/01/25 17:30:34 by mhuszar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,8 +79,7 @@ int __attribute__ ((format (printf, 1, 2)))
 }
 /*
 #include <stdio.h>
-# include <stdlib.h>
-# include <stddef.h>
+#include <stdlib.h>
 int	main(void)
 {
 	char *ptr;
