@@ -6,7 +6,7 @@
 /*   By: mhuszar <mhuszar@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 15:58:51 by mhuszar           #+#    #+#             */
-/*   Updated: 2026/01/25 17:08:50 by mhuszar          ###   ########.fr       */
+/*   Updated: 2026/01/25 17:27:06 by mhuszar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,12 +48,15 @@ static int	flag_check(char c)
 		return (0);
 }
 
-int	ft_printf(const char *fmt_str, ...)
+int __attribute__ ((format (printf, 1, 2)))
+	ft_printf(const char *fmt_str, ...)
 {
 	int		counter;
 	int		len;
 	va_list	arg_list;
 
+	if (!fmt_str)
+		return (write(2, "\?\?!!\n", 5));
 	va_start(arg_list, fmt_str);
 	counter = 0;
 	len = 0;
@@ -63,7 +66,7 @@ int	ft_printf(const char *fmt_str, ...)
 		{
 			counter++;
 			if (!flag_check(fmt_str[counter]))
-				return (-1);
+				return (va_end(arg_list), -1);
 			else
 				len = len + printf_sub(&arg_list, fmt_str[counter]);
 		}
@@ -94,17 +97,18 @@ int	main(void)
 
 	ft_printf("%s alma %i\n", ptr, -4626);
 	
-	//printf("%s\n", NULL);
-	//ft_printf("%s\n", NULL);
+	// printf("%s\n", NULL);
+	// ft_printf("%s\n", NULL);
 	
-	//printf("%p\n", NULL);
-	//ft_printf("%p\n", NULL);
+	printf("%p\n", NULL);
+	ft_printf("%p\n", NULL);
 
 	//printf("%d\n", printf(" %p %p \n", 0, 0));
 	//printf("%d\n", ft_printf(" %p %p \n", 0, 0));
 	
-	printf("\n%d\n", printf("kalap alma%", "alma"));
-	printf("\n%d\n", ft_printf("kalap alma%", "alma"));
+	// printf("\n%d\n", printf("kalap alma%", "alma"));
+	// printf("\n%d\n", ft_printf("kalap alma%", "alma"));
+	ft_printf(NULL);
 	//printf("kalap alma%\n");
 	//ft_printf("kalap alma%\n");
 	

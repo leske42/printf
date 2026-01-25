@@ -6,7 +6,7 @@
 /*   By: mhuszar <mhuszar@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 15:59:43 by mhuszar           #+#    #+#             */
-/*   Updated: 2026/01/25 17:08:39 by mhuszar          ###   ########.fr       */
+/*   Updated: 2026/01/25 17:20:52 by mhuszar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@
 # include <unistd.h>
 # include <stdarg.h>
 
-int		ft_printf(const char *tipus, ...);
+int		ft_printf(const char *tipus, ...)
+		__attribute__ ((format (printf, 1, 2)));
 void	ft_putchar(char c);
 int		print_i(int i);
 int		print_x(unsigned int x);
