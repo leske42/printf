@@ -6,13 +6,13 @@
 /*   By: mhuszar <mhuszar@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 17:05:23 by mhuszar           #+#    #+#             */
-/*   Updated: 2026/01/25 17:07:44 by mhuszar          ###   ########.fr       */
+/*   Updated: 2026/01/25 17:35:34 by mhuszar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-size_t	ft_strlen(const char *s)
+static size_t	ft_strlen(const char *s)
 {
 	int	ctr;
 
