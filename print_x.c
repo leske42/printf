@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   print_x.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhuszar <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: mhuszar <mhuszar@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 18:24:16 by mhuszar           #+#    #+#             */
-/*   Updated: 2023/09/25 18:24:18 by mhuszar          ###   ########.fr       */
+/*   Updated: 2026/01/25 17:07:53 by mhuszar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "ft_printf.h"
 
 static int	x_digit_count(unsigned int x)

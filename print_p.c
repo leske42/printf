@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   print_p.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhuszar <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: mhuszar <mhuszar@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 19:44:42 by mhuszar           #+#    #+#             */
-/*   Updated: 2023/09/25 19:44:43 by mhuszar          ###   ########.fr       */
+/*   Updated: 2026/01/25 17:07:41 by mhuszar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "ft_printf.h"
 
 static int	p_digit_count(unsigned long long int p)

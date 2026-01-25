@@ -3,28 +3,35 @@
 /*                                                        :::      ::::::::   */
 /*   print_s.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhuszar <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: mhuszar <mhuszar@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 17:05:23 by mhuszar           #+#    #+#             */
-/*   Updated: 2023/09/25 17:05:25 by mhuszar          ###   ########.fr       */
+/*   Updated: 2026/01/25 17:07:44 by mhuszar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "ft_printf.h"
+
+size_t	ft_strlen(const char *s)
+{
+	int	ctr;
+
+	ctr = 0;
+	while (s[ctr] != 0)
+		ctr++;
+	return (ctr);
+}
 
 int	print_s(char *str)
 {
 	int	counter;
 
-	counter = 0;
 	if (str == NULL)
 	{
 		write(1, "(null)", 6);
 		return (6);
 	}
-	while (str[counter])
-	{
-		write(1, &str[counter], 1);
-		counter++;
-	}
+	counter = ft_strlen(str);
+	write(1, str, counter);
 	return (counter);
 }

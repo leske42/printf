@@ -3,36 +3,36 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhuszar <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: mhuszar <mhuszar@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 15:58:51 by mhuszar           #+#    #+#             */
-/*   Updated: 2023/09/25 15:58:54 by mhuszar          ###   ########.fr       */
+/*   Updated: 2026/01/25 17:08:50 by mhuszar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "ft_printf.h"
-//#include <stdarg.h>
 
-static int	printf_sub(va_list arg_list, const char typ)
+#include "ft_printf.h"
+
+static int	printf_sub(va_list *arg_list, const char typ)
 {
 	int	len;
 
 	len = 0;
 	if (typ == 'c')
-		len = print_c(va_arg(arg_list, int));
+		len = print_c(va_arg(*arg_list, int));
 	else if (typ == 's')
-		len = print_s(va_arg(arg_list, char *));
+		len = print_s(va_arg(*arg_list, char *));
 	else if (typ == 'p')
-		len = print_p(va_arg(arg_list, void *));
+		len = print_p(va_arg(*arg_list, void *));
 	else if (typ == 'd')
-		len = print_i(va_arg(arg_list, int));
+		len = print_i(va_arg(*arg_list, int));
 	else if (typ == 'i')
-		len = print_i(va_arg(arg_list, int));
+		len = print_i(va_arg(*arg_list, int));
 	else if (typ == 'u')
-		len = print_u(va_arg(arg_list, unsigned int));
+		len = print_u(va_arg(*arg_list, unsigned int));
 	else if (typ == 'x')
-		len = print_x(va_arg(arg_list, unsigned int));
+		len = print_x(va_arg(*arg_list, unsigned int));
 	else if (typ == 'X')
-		len = print_xup(va_arg(arg_list, unsigned int));
+		len = print_xup(va_arg(*arg_list, unsigned int));
 	else if (typ == '%')
 		len = print_c('%');
 	return (len);
@@ -48,33 +48,36 @@ static int	flag_check(char c)
 		return (0);
 }
 
-int	ft_printf(const char *tipus, ...)
+int	ft_printf(const char *fmt_str, ...)
 {
 	int		counter;
 	int		len;
 	va_list	arg_list;
 
-	va_start(arg_list, tipus);
+	va_start(arg_list, fmt_str);
 	counter = 0;
 	len = 0;
-	while (tipus[counter])
+	while (fmt_str[counter])
 	{
-		if (tipus[counter] == '%')
+		if (fmt_str[counter] == '%')
 		{
 			counter++;
-			if (!flag_check(tipus[counter]))
+			if (!flag_check(fmt_str[counter]))
 				return (-1);
 			else
-				len = len + printf_sub(arg_list, tipus[counter]);
+				len = len + printf_sub(&arg_list, fmt_str[counter]);
 		}
 		else
-			len = len + print_c(tipus[counter]);
+			len = len + print_c(fmt_str[counter]);
 		counter++;
 	}
 	va_end(arg_list);
 	return (len);
 }
 /*
+#include <stdio.h>
+# include <stdlib.h>
+# include <stddef.h>
 int	main(void)
 {
 	char *ptr;

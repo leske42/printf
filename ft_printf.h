@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhuszar <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: mhuszar <mhuszar@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 15:59:43 by mhuszar           #+#    #+#             */
-/*   Updated: 2023/09/25 15:59:46 by mhuszar          ###   ########.fr       */
+/*   Updated: 2026/01/25 17:08:39 by mhuszar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,6 @@
 # define FT_PRINTF_H
 
 # include <unistd.h>
-# include <stdio.h>
-# include <stdlib.h>
-# include <stddef.h>
 # include <stdarg.h>
 
 int		ft_printf(const char *tipus, ...);

@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   print_i.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhuszar <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: mhuszar <mhuszar@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 17:46:16 by mhuszar           #+#    #+#             */
-/*   Updated: 2023/09/25 17:46:18 by mhuszar          ###   ########.fr       */
+/*   Updated: 2026/01/25 17:07:37 by mhuszar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "ft_printf.h"
 
 void	ft_putchar(char c)

@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   print_u.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhuszar <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: mhuszar <mhuszar@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 19:33:17 by mhuszar           #+#    #+#             */
-/*   Updated: 2023/09/25 19:33:19 by mhuszar          ###   ########.fr       */
+/*   Updated: 2026/01/25 17:07:48 by mhuszar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "ft_printf.h"
 
 static int	digit_u(unsigned int y)
