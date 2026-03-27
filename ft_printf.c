@@ -6,7 +6,7 @@
 /*   By: mhuszar <mhuszar@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 15:58:51 by mhuszar           #+#    #+#             */
-/*   Updated: 2026/01/25 17:30:34 by mhuszar          ###   ########.fr       */
+/*   Updated: 2026/03/27 21:34:37 by mhuszar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,17 +22,17 @@ static int	printf_sub(va_list *arg_list, const char typ)
 	else if (typ == 's')
 		len = print_s(va_arg(*arg_list, char *));
 	else if (typ == 'p')
-		len = print_p(va_arg(*arg_list, void *));
+		len = print_unsigned((size_t)va_arg(*arg_list, void *), 'P');
 	else if (typ == 'd')
-		len = print_i(va_arg(*arg_list, int));
+		len = print_signed(va_arg(*arg_list, int));
 	else if (typ == 'i')
-		len = print_i(va_arg(*arg_list, int));
+		len = print_signed(va_arg(*arg_list, int));
 	else if (typ == 'u')
-		len = print_u(va_arg(*arg_list, unsigned int));
+		len = print_unsigned(va_arg(*arg_list, unsigned int), 0);
 	else if (typ == 'x')
-		len = print_x(va_arg(*arg_list, unsigned int));
+		len = print_unsigned(va_arg(*arg_list, unsigned int), 'a');
 	else if (typ == 'X')
-		len = print_xup(va_arg(*arg_list, unsigned int));
+		len = print_unsigned(va_arg(*arg_list, unsigned int), 'A');
 	else if (typ == '%')
 		len = print_c('%');
 	return (len);

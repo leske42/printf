@@ -6,49 +6,51 @@
 /*   By: mhuszar <mhuszar@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 19:44:42 by mhuszar           #+#    #+#             */
-/*   Updated: 2026/01/25 17:30:58 by mhuszar          ###   ########.fr       */
+/*   Updated: 2026/03/27 22:09:25 by mhuszar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	p_digit_count(size_t p)
+static char *fill_buf(char *buf, size_t num, int base, int ten)
 {
-	int	counter;
+	int	modulo;
 
-	counter = 1;
-	while (p > 15)
+	*buf = '\0';
+	if (ten == 'P')
+		ten = 'a';
+	if (!num)
+		*(--buf) = '0';
+	while (num)
 	{
-		p = p / 16;
-		counter++;
+		buf--;
+		modulo = num % base;
+		num = num / base;
+		if (modulo < 10)
+			*buf = modulo + '0';
+		else
+			*buf = modulo - 10 + ten;
 	}
-	return (counter);
+	return (buf);
 }
 
-static void	print_p_sub(size_t p)
+int print_unsigned(size_t num, int mode)
 {
-	if (p > 15)
-	{
-		print_p_sub(p / 16);
-		print_p_sub(p % 16);
-	}
-	else if (p < 10)
-		ft_putchar(p + '0');
+	int		base;
+	char	buf[23];
+	char	*res;
+
+	if (mode == 'P' && !num)
+		return (print_s("(nil)"));
+	if (!mode)
+		base = 10;
 	else
-		ft_putchar(p - 10 + 'a');
-}
-
-int	print_p(void *ptr)
-{
-	size_t	address;
-
-	address = (size_t)ptr;
-	if (ptr == NULL)
+		base = 16;
+	res = fill_buf(&buf[22], num, base, mode);
+	if (mode == 'P')
 	{
-		write(1, "(nil)", 5);
-		return (5);
+		*(--res) = 'x';
+		*(--res) = '0';
 	}
-	write(1, "0x", 2);
-	print_p_sub(address);
-	return (p_digit_count(address) + 2);
+	return (print_s(res));
 }

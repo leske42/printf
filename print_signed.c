@@ -1,43 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_u.c                                          :+:      :+:    :+:   */
+/*   print_signed.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mhuszar <mhuszar@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/25 19:33:17 by mhuszar           #+#    #+#             */
-/*   Updated: 2026/01/25 17:07:48 by mhuszar          ###   ########.fr       */
+/*   Created: 2023/09/25 17:46:16 by mhuszar           #+#    #+#             */
+/*   Updated: 2026/03/27 22:14:55 by mhuszar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	digit_u(unsigned int y)
+int print_signed(long int num)
 {
-	int	counter;
+	char		buf[12];
+	int			idx;
+	bool		negative;
 
-	counter = 1;
-	while (y > 9)
+	if (!num)
+		return (print_c('0'));
+	negative = (num < 0);
+	if (negative)
+		num *= -1;
+	idx = 11;
+	buf[idx] = '\0';
+	while (num)
 	{
-		y = y / 10;
-		counter++;
+		idx--;
+		buf[idx] = num % 10 + '0';
+		num = num / 10;
 	}
-	return (counter);
+	if (negative)
+		buf[--idx] = '-';
+	return (print_s(&buf[idx]));
 }
 
-static void	put_u(unsigned int u)
-{
-	if (u > 9)
-	{
-		put_u(u / 10);
-		put_u(u % 10);
-	}
-	else
-		ft_putchar(u + '0');
-}
-
-int	print_u(unsigned int u)
-{
-	put_u(u);
-	return (digit_u(u));
-}

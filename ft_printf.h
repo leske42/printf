@@ -6,7 +6,7 @@
 /*   By: mhuszar <mhuszar@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 15:59:43 by mhuszar           #+#    #+#             */
-/*   Updated: 2026/01/25 17:30:39 by mhuszar          ###   ########.fr       */
+/*   Updated: 2026/03/27 22:15:25 by mhuszar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,13 @@
 # include <unistd.h>
 # include <stdarg.h>
 # include <stddef.h>
+# include <stdbool.h>
 
-int		ft_printf(const char *tipus, ...)
+int		ft_printf(const char *fmt_str, ...)
 		__attribute__ ((format (printf, 1, 2)));
-void	ft_putchar(char c);
-int		print_i(int i);
-int		print_x(unsigned int x);
-int		print_xup(unsigned int x);
+int		print_signed(long int num);
+int		print_unsigned(size_t num, int mode);
 int		print_c(char c);
 int		print_s(char *str);
-int		print_p(void *ptr);
-int		print_u(unsigned int u);
 
 #endif
