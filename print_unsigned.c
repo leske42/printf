@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_p.c                                          :+:      :+:    :+:   */
+/*   print_unsigned.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mhuszar <mhuszar@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 19:44:42 by mhuszar           #+#    #+#             */
-/*   Updated: 2026/03/27 22:09:25 by mhuszar          ###   ########.fr       */
+/*   Updated: 2026/03/27 22:25:27 by mhuszar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static char *fill_buf(char *buf, size_t num, int base, int ten)
+static char	*fill_buf(char *buf, size_t num, int base, int ten)
 {
 	int	modulo;
 
@@ -34,7 +34,7 @@ static char *fill_buf(char *buf, size_t num, int base, int ten)
 	return (buf);
 }
 
-int print_unsigned(size_t num, int mode)
+int	print_unsigned(size_t num, int mode)
 {
 	int		base;
 	char	buf[23];

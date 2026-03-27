@@ -6,13 +6,13 @@
 /*   By: mhuszar <mhuszar@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 17:46:16 by mhuszar           #+#    #+#             */
-/*   Updated: 2026/03/27 22:14:55 by mhuszar          ###   ########.fr       */
+/*   Updated: 2026/03/27 22:25:18 by mhuszar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int print_signed(long int num)
+int	print_signed(long int num)
 {
 	char		buf[12];
 	int			idx;
@@ -35,4 +35,3 @@ int print_signed(long int num)
 		buf[--idx] = '-';
 	return (print_s(&buf[idx]));
 }
-

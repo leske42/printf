@@ -6,7 +6,7 @@
 /*   By: mhuszar <mhuszar@student.42vienna.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/25 15:58:51 by mhuszar           #+#    #+#             */
-/*   Updated: 2026/03/27 21:34:37 by mhuszar          ###   ########.fr       */
+/*   Updated: 2026/03/27 22:27:37 by mhuszar          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,44 +38,44 @@ static int	printf_sub(va_list *arg_list, const char typ)
 	return (len);
 }
 
-static int	flag_check(char c)
+static bool	flag_check(char c)
 {
 	if (c == 'c' || c == 's' || c == 'p' || c == 'd' || c == 'i')
-		return (1);
+		return (true);
 	else if (c == 'u' || c == 'x' || c == 'X' || c == '%')
-		return (1);
+		return (true);
 	else
-		return (0);
+		return (false);
 }
 
+//NOTE: passing NULL as fmt string is undefined (will likely segfault)
 int __attribute__ ((format (printf, 1, 2)))
 	ft_printf(const char *fmt_str, ...)
 {
-	int		counter;
+	int		ctr;
 	int		len;
+	int		printed;
 	va_list	arg_list;
 
-	if (!fmt_str)
-		return (write(2, "\?\?!!\n", 5));
 	va_start(arg_list, fmt_str);
-	counter = 0;
+	ctr = -1;
 	len = 0;
-	while (fmt_str[counter])
+	while (fmt_str[++ctr])
 	{
-		if (fmt_str[counter] == '%')
+		if (fmt_str[ctr] == '%')
 		{
-			counter++;
-			if (!flag_check(fmt_str[counter]))
+			if (!flag_check(fmt_str[++ctr]))
 				return (va_end(arg_list), -1);
 			else
-				len = len + printf_sub(&arg_list, fmt_str[counter]);
+				printed = printf_sub(&arg_list, fmt_str[ctr]);
 		}
 		else
-			len = len + print_c(fmt_str[counter]);
-		counter++;
+			printed = print_c(fmt_str[ctr]);
+		if (printed < 0)
+			return (va_end(arg_list), -1);
+		len += printed;
 	}
-	va_end(arg_list);
-	return (len);
+	return (va_end(arg_list), len);
 }
 /*
 #include <stdio.h>
